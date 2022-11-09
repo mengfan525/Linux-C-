@@ -5,13 +5,8 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <pthread.h>
+#include "server.h"
 
-struct SockInfo
-{
-    struct sockaddr_in addr;
-    int fd;
-    
-};
 
 struct SockInfo infos[512];
 
