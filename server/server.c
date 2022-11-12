@@ -6,7 +6,7 @@
 #include <sys/socket.h>
 #include <pthread.h>
 #include "server.h"
-
+#include "transdata.h"
 
 struct SockInfo infos[512];
 
@@ -87,8 +87,8 @@ void *working(void * arg){
     while(1)
     {
 
-        char buff[1024];
-        int len = recv(pinfo->fd,buff,sizeof(buff),0);
+        struct Trans_data serverdata = {0};
+        int len = recv(pinfo->fd,&serverdata,sizeof(serverdata),0);
         if(len > 0)
         {
             printf("client say: %s\n",buff);
