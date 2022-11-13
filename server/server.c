@@ -87,14 +87,10 @@ void *working(void * arg){
     while(1)
     {
 
-        struct Trans_data serverdata = {0};
-        int len = recv(pinfo->fd,&serverdata,sizeof(serverdata),0);
-        if(len > 0)
-        {
-            printf("client say: %s\n",buff);
-            send(pinfo->fd,buff,len,0);
-        }
-        else if(len == 0)
+        Trans_data serverdata = {0};
+        serverdata.fd = pinfo.fd
+        int len = recv(serverdata.fd,&serverdata,sizeof(serverdata),0);
+        if(len == 0)
         {
             printf("client disconnect\n");
             break;
@@ -103,7 +99,23 @@ void *working(void * arg){
         {
             perror("recv");
             break;
-        }    
+        }  
+        switch(serverdata.cmd){
+            case CMD_REGISTER:
+                
+            case CMD_LOGIN:
+            case CMD_PRIVATE_CHAT:
+            case CMD_GROUP_CHAT:
+            case CMD_BUILD_GROUP:
+            case CMD_JION_GROUP:
+            case CMD_SHOW_GROUP:
+            case CMD_ADD_FRIEND:
+            case CMD_SHOW_FRIEND:
+            case CMD_SEND_FILE:
+
+
+        }
+
     }
     close(pinfo->fd);
     pinfo->fd = -1;

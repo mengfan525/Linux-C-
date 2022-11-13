@@ -3,9 +3,21 @@
 #include <unistd.h>
 #include "transdata.h"
 
-void initialize_transdata(Trans_data* trans_data){
-    memset(trans_data->cmd,0,sizeof(trans_data->cmd));
-    memset(trans_data->user_data,0,sizeof(trans_data->user_data));
-    memset(trans_data->file_log,0,sizeof(trans_data->file_log));
-    memset(trans_data->buff,0,sizeof(trans_data->buff));
+
+void is_qq_exist(char* qq){
+    
+
+}
+
+int create_user_qq(Userinfo userdata){
+    
+
+
+
+
+
+
+    show_line("开始注册qq号！");
+    srand(time(NULL));
+    int qq_id = rand()%10000000+10000000;
 }
